@@ -1,0 +1,64 @@
+<!-- Import Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!-- Define your custom element -->
+<polymer-element name="ls-collapse" attributes="active">
+
+    <template>
+        <style> /*...*/ </style>
+        <div id="label">
+            <content></content>
+        </div>
+        Value: <span id="counterVal">{{active}}</span><br>
+        <button on-tap="{{increment}}">Increment</button>
+    </template>
+
+    <script>
+        Polymer('ls-collapse', {
+
+            active: 0,
+
+            counterChanged: function() {
+                this.$.counterVal.classList.add('highlight');
+                console.log('counterChanged')
+            },
+
+            increment: function() {
+                this.active++;
+            },
+
+            // Fires when an instance of the element is created
+            created: function() {
+                console.log('created');
+            },
+
+            // Fires when the element’s initial set of children and siblings are guaranteed to exist
+            domReady: function() {
+                console.log('domReady');
+            },
+
+            // Fires when the "<polymer-element>" has been fully prepared
+            ready: function() {
+                console.log('ready');
+            },
+
+            // Fires when the element was inserted into the document
+            attached: function() {
+                console.log('attached');
+            },
+
+            // Fires when the element was removed from the document
+            detached: function() {
+                console.log('detached');
+            },
+
+            // Fires when an attribute was added, removed, or updated
+            attributeChanged: function(attr, oldVal, newVal) {
+                console.log('attributeChanged');
+            }
+        });
+    </script>
+
+    test
+
+</polymer-element>
